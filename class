@@ -4,9 +4,16 @@ class math:
     """
     docstring
     """
-    def add(self,Num1,Num2):
-        self.Num1 = input('what the heck in the first number???').upper
-        self.Num2 = input('what the heck in the second number???').upper
-        type(Num1)
-        
-math.add(2,3)
+    def __init__(self,Num1,Num2):
+        self.Num1 = Num1 
+        self.Num2 = Num2
+    def add(Num1,Num2):
+        if type(Num1) == int or float and type(Num2) == int or float:
+            sum = int(Num1) + int(Num2)
+            print(sum)
+        else:
+            print('please enter a number').upper
+N = input('what the heck in the first number???')
+N2 = input('what the heck in the second number???')
+math(N,N2)
+math.add(N,N2)
