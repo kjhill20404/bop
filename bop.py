@@ -1,9 +1,8 @@
 from subprocess import *
-from calculator import calculator
+from calculator import calculator,var
 from os_speak import os_speak,ohno
 import time
 from datetime import datetime
-from find_var import var
 import playsound
 
 path = '/home/kevin/Documents/bop/dep/'
