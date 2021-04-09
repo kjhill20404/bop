@@ -13,5 +13,5 @@ def os_speak(audio_string):
 	os.remove(audio_file)
 	
 def ohno():
-	path = '/home/kevin/Documents/bop/dep/'
+	path = '/home/kevin/bop/dep/'
 	playsound.playsound(path + 'battle003.mp3')

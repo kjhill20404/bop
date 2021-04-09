@@ -7,7 +7,7 @@ from datetime import datetime
 import playsound
 
 
-path_to_file = '/home/kevin/Documents/bop/dep/'
+path_to_file = '/home/kevin/bop/dep/'
 #these is so when we use the os_speak we can hear what it says 
 #call(["amixer", "-D", "pulse", "sset", "Master", "70%","on"]) #this is used to run a command to set the master volume to 70%
 call(['clear'])
@@ -64,20 +64,18 @@ else:
 		while aa == False:#to give the user a couple extra attempts if they made a mistake
 			first_name = input("let's try that again shall we, what is your first name??").capitalize().strip(' ')
 			last_name = input('and your last name??').capitalize().strip(' ')
-			attemps = attemps + 1			
+			attemps = attemps + 1
 			if first_name =='Kevin' and last_name =='Hill' or first_name== 'Dani' and last_name == 'Hill' or first_name=='Melani' :
 				aa = True
 				attemps = 5
 				self_destruct = False
 				allow_acsess()
-			if attempts == 4:
+			if attemps == 4:
+				self_destruct = True
 				aa = True
-	while attemps == 4:
-		self_destruct = True
-		aa = True
-		attemps = attemps + 1
-	while attemps == 5:
-		self_destruct = False 
+				attemps = attemps + 70
+		while attemps == 5:
+			self_destruct = False 
 
 if self_destruct == True: #play a sound and shuts down the device
 	print(output_c + ' is not autorized to use this program')
