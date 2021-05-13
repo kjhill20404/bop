@@ -11,6 +11,7 @@ sudo pip3 install gTTS
 
 echo 'changing dir'
 cd ~
+  ###work on using a if statement with the GIT cli for this part
 echo 'installing wget'
 apt-get install wget
 
@@ -19,6 +20,7 @@ wget https://github.com/kjhill20404/bop/archive/refs/heads/main.zip
 
 echo 'unziping files'
 unzip main.zip
+  ###
 echo 'changing dir name'
 mv /home/kevin/bop-main /home/kevin/bop
 
