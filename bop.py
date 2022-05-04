@@ -15,7 +15,7 @@ call(['clear'])
 #prerequisites 
 first_name= input('what is your first name!!!!!!?????\n').capitalize().strip(' ')
 last_name= input('what is your last name!!!!!!!!??????\n').capitalize().strip(' ')
-output_c= f'{(first_name)} {(last_name)}'
+output_c= (first_name) + ' '+ (last_name)
 #var to be used later
 attemps = 1
 
@@ -24,27 +24,35 @@ index1 = 6
 def count_down(num):#this is used in self_destruct just so the code is a little more readbule
 	if num == 'true':
 		playsound.playsound(path_to_file + 'audio-' + str(index1) + '.mp3')
-	elif num == 'false':
+	else:
 		playsound.playsound(path_to_file + 'audio-' + 'SELF-DESTRUCT_SEQUENCE_INITIATED' + '.mp3')
 
-#this is the main class that gets used and to be added onto going forword
+
+
+#this is the main function that gets used and to be added onto going forword
 def allow_acsess():
 	self_destruct = False
-	print(output_c + ' is autorized to use this program')
-	print('Hello, ' + (first_name) +' '+ (last_name))
+	print(output_c + ' is authorized to use this program')
+	print('Hello, ' + output_c)
+	os_speak(output_c + ' is authorized to use this program')
+	os_speak('Hello, ' + output_c)
 	time.sleep(3)
-	print("I'm a new programe so I can't do to much but I can do simpal math, \n but I don't like it so I may be a litte agressive")
+	print("I'm a new programe so I can't do to much but I can do simpal math, \n but I don't like it so I may be a little agressive")
 	print('\n')
+	os_speak("I'm a new programe so I can't do to much but I can do simpal math, but I don't like it so I may be a little agressive")
 	time.sleep(2)
-	options = ['calculator', 'find var']
+	options = ['calculator', 'find variable']
 	print(str(options) + ' are all I can do at the moment' ) 
+	os_speak(str(options) + ' are all I can do at the moment' )
 	want= input('For ' + str(options[:1]) +' type "cal" or for ' + str(options[1:3]) + 'just type var\n').strip(' ')
 	#a simpale calculator 
 	if want == 'cal':
 		calculator()
 	#This is to find the varibule in almost any eqaison
-	if want == 'var':
+	elif want == 'var':
 		var()
+	else:
+		want = input("I'm sorry, I don't understand. Is their something less complex I may help with?")
 
 #this checks to see if the name people enter is allowed (change names if nessissary)
 if first_name =='Kevin' and last_name =='Hill' or first_name== 'Dani' and last_name == 'Hill' or first_name=='Melani' :#could theoredicly put names in list going forward
@@ -62,16 +70,20 @@ else:
 				aa = True
 				attemps = 5
 				self_destruct = False
+				output_c= f'{(first_name)} {(last_name)}'
 				allow_acsess()
-			if attemps == 4:
+			elif attemps == 4:
 				self_destruct = True
-				aa = True
+				aa = False
+				output_c= f'{(first_name)} {(last_name)}'
 				attemps = attemps + 70
 		while attemps == 5:
 			self_destruct = False 
+
 #this is to maybe scare the unauthorized user index1 was prev deffinded in the begining of the code
 if self_destruct == True: #play a sound and shuts down the device
-	print(output_c + ' is not autorized to use this program')
+	print(output_c + ' is not authorized to use this program')
+	os_speak(output_c + ' is not authorized to use this program')
 	print('SELF-DESTRUCT SEQUENCE INITIATED')
 	count_down('false')
 	print(datetime.now())
@@ -88,6 +100,6 @@ if self_destruct == True: #play a sound and shuts down the device
 			ohno()#this will play a exploshion sound as long as its in the same folder
 			time.sleep(1)
 			index1 = index1 -1 
-			call(['shutdown','-h','now']) #this uses the call fuction to tell the computer to shutdown, you can comment it out if you want 
+#			call(['shutdown','-h','now']) #this uses the call fuction to tell the computer to shutdown, you can comment it out if you want 
 
 
