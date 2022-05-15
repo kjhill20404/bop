@@ -36,23 +36,26 @@ class os_speak:
 
 	def string(astring):
 		audio_string = astring
-		tts = gTTS(text=audio_string, lang='en') 
-		r = random.randint(1, 1000000)
-		audio_file = 'audio-' + str(r) + '.mp3'
-		tts.save(audio_file)
+		# tts = gTTS(text=audio_string, lang='en') 
+		# r = random.randint(1, 1000000)
+		# audio_file = 'audio-' + str(r) + '.mp3'
+		# tts.save(audio_file)
 		print(audio_string +"\n")
-		playsound.playsound(audio_file)
-		os.remove(audio_file)
+		# playsound.playsound(audio_file)
+		# os.remove(audio_file)
 	def path(file):
-		playsound.playsound(file)
+		print('assume the file was played')
+		# playsound.playsound(file)
 	def ohno():
-		path = '/home/kevin/bop/dep/'
-		playsound.playsound(path + 'battle003.mp3')
+		print('ohno')
+		# path = '/home/kevin/bop/dep/'
+		# playsound.playsound(path + 'battle003.mp3')
 	def count_down(bool,num):#this is used in self_destruct just so the code is a little more readbule
-		if bool == True:
-			playsound.playsound(path_to_file + 'audio-' + str(num) + '.mp3')
-		else:
-			playsound.playsound(path_to_file + 'audio-' + 'SELF-DESTRUCT_SEQUENCE_INITIATED' + '.mp3')
+		print('')
+		# if bool == True:
+		# 	playsound.playsound(path_to_file + 'audio-' + str(num) + '.mp3')
+		# else:
+		# 	playsound.playsound(path_to_file + 'audio-' + 'SELF-DESTRUCT_SEQUENCE_INITIATED' + '.mp3')
 
 
 
@@ -97,7 +100,7 @@ else:
 				allow_acsess()
 			elif attemps == 4:
 				self_destruct = True
-				aa = False
+				aa = True
 				output_c= f'{(first_name)} {(last_name)}'
 				attemps = attemps + 70
 		while attemps == 5:
@@ -107,7 +110,7 @@ else:
 if self_destruct == True: #play a sound and shuts down the device
 	os_speak.string(output_c + ' is not authorized to use this program')
 	print('SELF-DESTRUCT SEQUENCE INITIATED')
-	os_speak.count_down('false')
+	os_speak.count_down('false',6)
 	print(datetime.now())
 	allow_acsess= False
 	while index1 > 0: #this counts down 
@@ -119,7 +122,7 @@ if self_destruct == True: #play a sound and shuts down the device
 			print('in 1 second')
 			os_speak.count_down('true',index1)
 			time.sleep(1)
-			ohno()#this will play a exploshion sound as long as its in the same folder
+			os_speak.ohno()#this will play a exploshion sound as long as its in the same folder
 			time.sleep(1)
 			index1 = index1 -1 
 #			call(['shutdown','-h','now']) #this uses the call fuction to tell the computer to shutdown, you can comment it out if you want 
