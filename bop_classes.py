@@ -1,13 +1,12 @@
-
 from subprocess import *
-from calculator import calculator,var
-import time
+
 from datetime import datetime
 import playsound
 from gtts import gTTS
 import os 
 import random 
 import platform 
+from class_calc_test import * 
 
 if(platform.system() == 'Windows'):
 	call(["cls"],shell=True)
@@ -33,29 +32,30 @@ index1 = 6
 class os_speak:
 	def __init__(self):
 		self.audio_string = str()
-
 	def string(astring):
 		audio_string = astring
-		# tts = gTTS(text=audio_string, lang='en') 
-		# r = random.randint(1, 1000000)
-		# audio_file = 'audio-' + str(r) + '.mp3'
-		# tts.save(audio_file)
+		tts = gTTS(text=audio_string, lang='en')
+		r = random.randint(1, 1000000)
+		audio_file = 'audio-' + str(r) + '.mp3'
+		tts.save(audio_file)
 		print(audio_string +"\n")
-		# playsound.playsound(audio_file)
-		# os.remove(audio_file)
+		playsound.playsound(audio_file)
+		os.remove(audio_file)
 	def path(file):
-		print('assume the file was played')
-		# playsound.playsound(file)
+		#print('assume the file was played')
+		playsound.playsound(file)
 	def ohno():
 		print('ohno')
-		# path = '/home/kevin/bop/dep/'
-		# playsound.playsound(path + 'battle003.mp3')
+		path = '/home/kevin/bop/dep/'
+		playsound.playsound(path + 'battle003.mp3')
 	def count_down(bool,num):#this is used in self_destruct just so the code is a little more readbule
-		print('')
-		# if bool == True:
-		# 	playsound.playsound(path_to_file + 'audio-' + str(num) + '.mp3')
-		# else:
-		# 	playsound.playsound(path_to_file + 'audio-' + 'SELF-DESTRUCT_SEQUENCE_INITIATED' + '.mp3')
+		 print('')
+		 if bool == True:
+			 playsound.playsound(path_to_file + 'audio-' + str(num) + '.mp3')
+			 
+		 elif bool == False:
+			 
+			 playsound.playsound(path_to_file + 'audio-' + 'SELF-DESTRUCT_SEQUENCE_INITIATED' + '.mp3')
 
 
 
@@ -72,11 +72,12 @@ def allow_acsess():
 	os_speak.string(str(options) + ' are all I can do at the moment' )
 	want= input('For ' + str(options[:1]) +' type "cal" or for ' + str(options[1:3]) + 'just type var\n').strip(' ')
 	#a simpale calculator 
+	
 	if want == 'cal':
-		calculator()
-	#This is to find the varibule in almost any eqaison
+		calcculator.cal()
+	#This is to find the varibule
 	elif want == 'var':
-		var()
+		calcculator.var()
 	else:
 		want = input("I'm sorry, I don't understand. Is their something less complex I may help with?")
 
@@ -87,40 +88,40 @@ if first_name =='Kevin' and last_name =='Hill' or first_name== 'Dani' and last_n
 	allow_acsess() 
 else:
 	aa = False
-	while attemps < 4:
-		while aa == False:#to give the user a couple extra attempts if they made a mistake
-			first_name = input("let's try that again shall we, what is your first name??").capitalize().strip(' ')
-			last_name = input('and your last name??').capitalize().strip(' ')
-			attemps = attemps + 1
-			if first_name =='Kevin' and last_name =='Hill' or first_name== 'Dani' and last_name == 'Hill' or first_name=='Melani' :
-				aa = True
-				attemps = 5
-				self_destruct = False
-				output_c= f'{(first_name)} {(last_name)}'
-				allow_acsess()
-			elif attemps == 4:
-				self_destruct = True
-				aa = True
-				output_c= f'{(first_name)} {(last_name)}'
-				attemps = attemps + 70
-		while attemps == 5:
-			self_destruct = False 
+
+	while aa == False:#to give the user a couple extra attempts if they made a mistake
+		first_name = input("let's try that again shall we, what is your first name??").capitalize().strip(' ')
+		last_name = input('and your last name??').capitalize().strip(' ')
+		attemps = attemps + 1
+		if first_name =='Kevin' and last_name =='Hill' or first_name== 'Dani' and last_name == 'Hill' or first_name=='Melani' :
+			aa = True
+			attemps = 5
+			self_destruct = False
+			output_c= f'{(first_name)} {(last_name)}'
+			allow_acsess()
+		elif attemps == 4:
+			self_destruct = True
+			aa = True
+			output_c= f'{(first_name)} {(last_name)}'
+			attemps = attemps + 70
+	while attemps == 5:
+		self_destruct = False 
 
 #this is to maybe scare the unauthorized user index1 was prev deffinded in the begining of the code
 if self_destruct == True: #play a sound and shuts down the device
 	os_speak.string(output_c + ' is not authorized to use this program')
 	print('SELF-DESTRUCT SEQUENCE INITIATED')
-	os_speak.count_down('false',6)
+	os_speak.count_down(False,6)
 	print(datetime.now())
-	allow_acsess= False
+	#allow_acsess= False
 	while index1 > 0: #this counts down 
 		print('in '+ str(index1) +' seconds')
-		os_speak.count_down('true',index1)
+		os_speak.count_down(True,index1)
 		time.sleep(1)
 		index1 = index1 - 1
 		while index1 == 1: # when index1 is equle to 1 it waits one sec and say's boom
 			print('in 1 second')
-			os_speak.count_down('true',index1)
+			os_speak.count_down(True,index1)
 			time.sleep(1)
 			os_speak.ohno()#this will play a exploshion sound as long as its in the same folder
 			time.sleep(1)

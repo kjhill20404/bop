@@ -38,7 +38,7 @@ def calculator():
 	if result >= 150:
 		time.sleep(3.5)	
 		if result > 1000000000:
-				print('R')			
+				print('R')
 				time.sleep(1)
 				haha = 'E' * 1000000000
 				print(haha)
