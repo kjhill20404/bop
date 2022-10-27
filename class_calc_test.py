@@ -1,7 +1,10 @@
 import time
 class calcculator:
 	
-	
+	 
+		
+		
+		
 	def  cal():
 		#try to use eval() with local scope
 		
