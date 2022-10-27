@@ -1,6 +1,9 @@
 import time
 class calcculator:
+	
+	
 	def  cal():
+		#try to use eval() with local scope
 		
 		funt = input('what is the funtion you would like to do????????????\n type +,-,*,/,^\n').strip(' ')
 		while not (funt == '+' or funt == '-' or funt == '/' or funt == '*' or funt == '^'):
