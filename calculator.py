@@ -56,6 +56,7 @@ def calculator():
 		time.sleep(0.5)
 		os_speak('HAHAHA')
 		
+		
 	
 def var():
 	funt = input('what is the funtion you is in the eq???????????? \n type +,-,*,/,\n').strip(' ')
